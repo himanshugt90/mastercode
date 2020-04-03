@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="First LWC Comppnent">
+        <div class="greetClass">
+            hello {userInput}
+        </div>
+        <div>
+            <lightning-input type="text" label="value" onchange={callHandler}></lightning-input>
+        </div>
+        <div>
+            <lightning-input type="checkbox" label="click me" onchange={clickHandler}></lightning-input>
+        </div>
+        <template if:true={showDiv}>
+            <div>
+                show div
+            </div>
+        </template>
+        <h1>--------Iteration ------</h1>
+        <template iterator:it={cityList}>
+            <p key={it.value}> {it.value}</p>
+        </template>
+        <h1>--------Iteration for each ------</h1>
+        <template for:each={cityList} for:item="city">
+            <p key={city}> {city}</p>
+        </template>
+    </lightning-card>
+
+</template>

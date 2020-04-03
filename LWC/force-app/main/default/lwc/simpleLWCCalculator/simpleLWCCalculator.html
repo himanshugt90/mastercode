@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title='LWC Calculator' icon-name="standard:formula">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-medium" size="12">
+                    <lightning-input type="number" name="firstNumber" onchange={numberHandler}></lightning-input>
+                </lightning-layout-item >
+                <lightning-layout-item padding="around-medium" size="12"> 
+                    <lightning-input type="number" name="secondNumber" onchange={numberHandler}></lightning-input>
+                </lightning-layout-item> 
+                <lightning-layout-item padding="around-medium">
+                    <lightning-button-group>
+                    <lightning-button  icon-name="utility:add" icon-position="center" onclick={add}></lightning-button>
+                    <lightning-button  icon-name="utility:dash" icon-position="center" onclick={sub}></lightning-button>
+                    <lightning-button  icon-name="utility:close" icon-position="center" onclick={mul}></lightning-button>
+                    <lightning-button  icon-name="utility:magicwand" icon-position="center" onclick={divison}></lightning-button>
+
+                </lightning-button-group>
+                <lightning-input  type="checkbox" label="Show All" onchange={showAll}></lightning-input>
+                </lightning-layout-item> 
+                 <lightning-layout-item padding="around-medium" size="12">
+                     
+                     <lightning-formatted-text style="font: bold;" value={result}></lightning-formatted-text>
+                     
+                    </lightning-layout-item>             
+            </lightning-layout>    
+
+    </lightning-card>
+    <template if:true={displayAll}>
+    <lightning-card title="All Result">
+        <ul>
+        <template iterator:it={allResult}>
+            <li key={it.value}> 
+                <lightning-formatted-text value={it.value}></lightning-formatted-text>
+            </li>
+            
+        </template>
+        </ul>
+    </lightning-card>
+    </template>
+</template>

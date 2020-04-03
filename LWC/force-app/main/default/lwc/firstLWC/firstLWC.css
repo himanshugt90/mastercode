@@ -1,0 +1,9 @@
+.greetClass{
+    background: lightblue;
+}
+div{
+    border: 3px solid royalblue;
+}
+:host{
+    border: 4px solid black;
+}

@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Set your view">
+        <lightning-layout horizontal-align="center"> 
+            <lightning-layout-item padding="horizontal-small">
+                <lightning-combobox
+                name="progress"
+                label="car type"
+                variant="label-hidden"
+                value={value}
+                options={carTypes}
+                onchange={handleChange} ></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item padding="horizontal-small">
+                <lightning-button variant="brand" label="New" title="Create New car detail" onclick={handleClick} 
+                ></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+    </lightning-card>
+
+</template>

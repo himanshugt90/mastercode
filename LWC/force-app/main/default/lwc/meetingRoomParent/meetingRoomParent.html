@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Meeting Room Info">
+        <p>Selected Meeting Room: {meetingRoomSelected}</p>
+        <lightning-layout multiple-rows="true">
+        <template for:each={meetingRoomInfo} for:item="room">
+        
+        <lightning-layout-item size="4" padding="around-small" key={room.roomName}>
+            <c-meeting-room meeting-room-info={room} ></c-meeting-room>
+        </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</lightning-card>
+</template>
