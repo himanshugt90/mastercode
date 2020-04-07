@@ -41,6 +41,9 @@
             ],
             "c/carSearchComponent": [
                 "carSearchComponent/carSearchComponent.js"
+            ],
+            "c/carSearchResult": [
+                "carSearchResult/carSearchResult.js"
             ]
         }
     },

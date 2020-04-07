@@ -1,12 +1,15 @@
 import { LightningElement, track, wire } from "lwc";
 import getCarTypes from "@salesforce/apex/CarSearchFormController.getCarTypes";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
-export default class CarSearchForm extends LightningElement {
+import { NavigationMixin } from 'lightning/navigation';
+
+export default class CarSearchForm extends NavigationMixin(LightningElement) {
   @track carTypes;
   @wire(getCarTypes)
   wiredCarTypes({ data, error }) {
+    
     if (data) {
-      this.carTypes = [{ label: "All Types", value: "" }];
+      this.carTypes = [{ label: 'All Types', value: '' }];
       data.forEach(element => {
         const carType = {};
         
@@ -17,6 +20,23 @@ export default class CarSearchForm extends LightningElement {
     } else if (error) {
       this.showToast("error", error.body.message, "error");
     }
+  }
+  
+  handleChange(event){
+    const carTypeId=event.detail.value;
+    
+    const carTypeSelectionChangeEvent=new CustomEvent('cartypeselectevent',{detail:carTypeId});
+    this.dispatchEvent(carTypeSelectionChangeEvent);
+  }
+  createNewCarType(){
+    this[NavigationMixin.Navigate]({
+      type: 'standard__objectPage',
+      attributes: {
+          objectApiName: 'Car_Type__c',
+          actionName: 'new',
+      },
+  });
+    
   }
 
   showToast(title, message, varient) {

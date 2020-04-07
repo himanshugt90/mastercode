@@ -1,9 +1,8 @@
 <template>
-    <lightning-card title="Set your view">
+    
         <lightning-layout horizontal-align="center"> 
             <lightning-layout-item padding="horizontal-small">
                 <lightning-combobox
-                name="progress"
                 label="car type"
                 variant="label-hidden"
                 value={value}
@@ -11,12 +10,12 @@
                 onchange={handleChange} ></lightning-combobox>
             </lightning-layout-item>
             <lightning-layout-item padding="horizontal-small">
-                <lightning-button variant="brand" label="New" title="Create New car detail" onclick={handleClick} 
+                <lightning-button variant="brand" label="New" title="Create New car detail" onclick={createNewCarType} 
                 ></lightning-button>
             </lightning-layout-item>
-            just testing git
+            
         </lightning-layout>
 
-    </lightning-card>
+   
 
 </template>
