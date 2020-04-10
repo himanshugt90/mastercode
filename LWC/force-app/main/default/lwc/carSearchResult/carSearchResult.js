@@ -5,13 +5,14 @@ export default class CarSearchResult extends LightningElement {
     
     @api carTypeId;
     @track cars;
+    @track selectedCarId;
 
     @wire(getCars,{carTypeId:'$carTypeId'})
     wiredCars({data,error}){
         if(data){
            this.cars= data;
-        }else{
-            
+        }else if(error){
+            this.showToast("error", error.body.message, "error");
         }
     }
     showToast(title, message, varient) {
@@ -21,6 +22,11 @@ export default class CarSearchResult extends LightningElement {
           varient: varient
         });
         this.dispatchEvent(evt);
+      }
+      handleCarSelect(event){
+            const carId=event.detail;
+            this.selectedCarId=carId;
+            console.log( "test-"+this.selectedCarId);
       }
       get carFound(){
          if(this.cars){
