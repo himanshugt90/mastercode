@@ -1,3 +1,17 @@
 <template>
-    
+    <template if:true={carFound}>
+        <lightning-card>
+    <lightning-tabset active-tab-value={selectedTabValue}>
+        <lightning-tab label="Car Details" value="cardetailstab" onactive={tabChangeHandler}>
+            <c-car-detail car={car}></c-car-detail>
+        </lightning-tab>
+        <lightning-tab label="Add Car Experience" value="addExperiencetab" onactive={tabChangeHandler} >
+          <c-add-car-experience car-id={carId}></c-add-car-experience>
+        </lightning-tab>
+        <lightning-tab label="View Experiance" value="viewExperiencetab" onactive={tabChangeHandler}>
+          <c-car-experience  car-id={carId}></c-car-experience>
+        </lightning-tab>
+    </lightning-tabset>
+</lightning-card>
+</template>
 </template>

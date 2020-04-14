@@ -26,7 +26,7 @@ export default class CarSearchResult extends LightningElement {
       handleCarSelect(event){
             const carId=event.detail;
             this.selectedCarId=carId;
-            console.log( "test-"+this.selectedCarId);
+            
       }
       get carFound(){
          if(this.cars){

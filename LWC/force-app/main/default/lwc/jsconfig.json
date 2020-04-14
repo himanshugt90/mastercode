@@ -44,6 +44,21 @@
             ],
             "c/carSearchResult": [
                 "carSearchResult/carSearchResult.js"
+            ],
+            "c/carTile": [
+                "carTile/carTile.js"
+            ],
+            "c/carDetails": [
+                "carDetails/carDetails.js"
+            ],
+            "c/carDetail": [
+                "carDetail/carDetail.js"
+            ],
+            "c/addCarExperience": [
+                "addCarExperience/addCarExperience.js"
+            ],
+            "c/carExperience": [
+                "carExperience/carExperience.js"
             ]
         }
     },

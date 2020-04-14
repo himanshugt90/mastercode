@@ -1,0 +1,45 @@
+<template>
+    <template if:false={hasExp}>
+        <p>No Experience found </p>
+    </template>
+    <template if:true={hasExp}>
+    <template for:each={carExperiences} for:item="carExp">
+    <div class="slds-feed" key={carExp.Id}>
+        <ul class="slds-feed__list">
+        <li class="slds-feed__item">
+        <article class="slds-post">
+        <header class="slds-post__header slds-media">
+        <div class="slds-media__figure">
+        <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
+        <img alt={carExp.CreatedBy.Name} src={carExp.CreatedBy.SmallPhotoUrl} title={carExp.CreatedBy.Name} />
+        </a>
+        </div>
+        <div class="slds-media__body">
+        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+        <p>
+        <a href="javascript:void(0);" title={carExp.CreatedBy.Name}>{carExp.CreatedBy.Name}</a> —
+        <a href="javascript:void(0);" title={carExp.CreatedBy.CompanyName}>{carExp.CreatedBy.CompanyName}</a>
+        </p>
+       
+        </div>
+        <p class="slds-text-body_small">
+        <a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">{carExp.CreatedDate}</a>
+        </p>
+        </div>
+        </header>
+        <div class="slds-post__content slds-text-longform">
+            <p>
+                {carExp.Name}
+            </p>
+        <p>
+            {carExp.Experience__c}
+        </p>
+        </div>
+        </article>
+         </li>
+        </ul>
+        </div>
+    </template>
+</template>
+
+</template>
