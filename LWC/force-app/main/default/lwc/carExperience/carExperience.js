@@ -3,14 +3,26 @@ import getCarExp from '@salesforce/apex/carExperienceController.getCarExp';
 
 export default class CarExperience extends LightningElement {
 
-    @api carId;
+    privateId;
      @track carExperiences;
+
+    @api 
+    get carId(){
+        return this.privateId;
+    }
+    set carId(value){
+       
+        this.privateId=value;
+        this.getCarExperiences();
+    }
+
     connectedCallback(){
         this.getCarExperiences();
     }
+    @api
     getCarExperiences(){
         console.log("312312-"+this.carId);
-        getCarExp( { carId: this.carId } ).then((exp)=>{
+        getCarExp( { carId: this.privateId } ).then((exp)=>{
             this.carExperiences=exp;
             console.log(JSON.stringify(exp));
         }).catch((error)=>{

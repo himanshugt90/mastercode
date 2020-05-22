@@ -35,12 +35,9 @@ export default class AddCarExperience extends LightningElement {
                     variant: 'success',
                 }),
             );
-            this.title='';
-            this.description='';
-        }
-
-        )
-        .catch(error => {
+            const carExpCustomEvent=new CustomEvent('carexpcustom');
+            this.dispatchEvent(carExpCustomEvent);
+        }).catch(error => {
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Error creating record',

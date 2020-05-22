@@ -47,7 +47,13 @@ export default class CarDetails extends LightningElement {
     callBackMethod(payload){
         this.carId=payload;
     }
-    
+    handleAddExpCustomEvent(){
+        const callViewExpMethod=this.template.querySelector('c-car-experience');
+        if(callViewExpMethod){
+        callViewExpMethod.getCarExperiences();
+        }
+        this.selectedTabValue='viewExperiencetab';
+    }
     get carFound(){
         if(this.car.data){
             console.log("carId i car details--="+this.carId);
